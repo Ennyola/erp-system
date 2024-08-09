@@ -11,6 +11,11 @@ import os
 
 from django.core.asgi import get_asgi_application
 
-os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings.base')
+RENDER = os.environ.get("RENDER", False)
+
+if RENDER:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.staging")
+else:
+    os.environ.setdefault("DJANGO_SETTINGS_MODULE", "config.settings.dev")
 
 application = get_asgi_application()
