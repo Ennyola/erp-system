@@ -71,8 +71,8 @@ class BehaviourAndSkills(UUIDModel, TimeStampedModel):
 
 
 class SupervisorFeedback(UUIDModel, TimeStampedModel):
-    employee = models.ForeignKey(
-        Employee, on_delete=models.CASCADE, related_name="feedbacks"
+    reviews = models.ForeignKey(
+        PerformanceReview, on_delete=models.CASCADE, related_name="feedbacks"
     )
     overall_performance_feedback = models.TextField()
     overall_performance_rating = models.CharField(max_length=50)

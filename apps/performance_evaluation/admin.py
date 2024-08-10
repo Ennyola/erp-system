@@ -5,6 +5,7 @@ from .models import (
     PerformanceObjective,
     PerformanceReview,
     DevelopmentPlan,
+    BehaviourAndSkills,
     SupervisorFeedback,
 )
 
@@ -35,4 +36,33 @@ class PerformanceReviewAdmin(admin.ModelAdmin):
         "achievements_and_challenges",
         "overall_performance_rating",
         "objective",
+    )
+
+
+@admin.register(DevelopmentPlan)
+class DevelopmentPlanAdmin(admin.ModelAdmin):
+    list_display = (
+        "employee",
+        "current_skills_to_enhance",
+        "new_skills_to_acquire",
+        "new_skills_to_acquire",
+    )
+
+
+@admin.register(BehaviourAndSkills)
+class BehviourAndSkillsAdmin(admin.ModelAdmin):
+    list_display = (
+        "employee",
+        "behavioural_expectations",
+        "improvements",
+        "aspects_that_need_change",
+    )
+
+
+@admin.register(SupervisorFeedback)
+class SupervisorFeedbackAdmin(admin.ModelAdmin):
+    list_display = (
+        "reviews",
+        "overall_performance_feedback",
+        "overall_performance_feedback",
     )
